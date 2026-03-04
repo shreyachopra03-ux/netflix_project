@@ -2,7 +2,7 @@ import Header from "./Header";
 import { useState, useRef } from "react";
 import { checkValidData } from "../utils/validate";
 import { auth } from "../utils/firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -10,7 +10,8 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const navigate = useNavigate();
-
+  
+  const name = useRef<HTMLInputElement>(null);
   const email = useRef<HTMLInputElement>(null);
   const password = useRef<HTMLInputElement>(null);
 
@@ -24,22 +25,38 @@ const Login = () => {
 
     if (message) return;
 
+    // sign up form logic
     if (!isSignInForm) {
-      createUserWithEmailAndPassword(
+     createUserWithEmailAndPassword(
         auth,
         email.current?.value || "",
         password.current?.value || ""
-      )
-        .then(() => navigate("/browse"))
-        .catch((error) => {
-          setErrorMessage(error.code + "," + error.message);
-        });
-    } else {
-      signInWithEmailAndPassword(
+    )
+    .then((userCredential) => {
+            const user = userCredential.user;
+            updateProfile(user, {
+            displayName: name.current?.value || "",
+            photoURL: "https://avatars.githubusercontent.com/u/201982287?v=4"
+            })
+            .then(() => {
+             navigate("/browse")
+            })
+            .catch((error) => {
+              setErrorMessage(error.message);
+            });
+    })
+    .catch((error) => {
+        setErrorMessage(error.code + "," + error.message);
+    });
+    } 
+
+    // sign in form logic
+    else {
+        signInWithEmailAndPassword(
         auth,
         email.current?.value || "",
         password.current?.value || ""
-      )
+        )
         .then(() => navigate("/browse"))
         .catch((error) => {
           setErrorMessage(error.code + "," + error.message);
@@ -71,6 +88,7 @@ const Login = () => {
 
         {!isSignInForm && (
           <input
+            ref={name}
             type="text"
             placeholder="Full Name"
             className="p-3 my-3 w-full rounded bg-gray-700 focus:outline-none"
