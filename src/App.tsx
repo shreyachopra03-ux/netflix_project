@@ -32,6 +32,7 @@ function AppContent() {
             uid: user.uid,
             email: user.email,
             displayName: user.displayName,
+            photoURL: user.photoURL
           })
         );
       } else {
