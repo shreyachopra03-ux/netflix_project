@@ -33,7 +33,7 @@ const Header = ({ showUser = false }: HeaderProps) => {
       {showUser && (
         <div className="flex items-center gap-4">
           <img
-            src={user.photoURL}
+            src={user?.photoURL || "/user-icon.png"}
             className="w-10 h-10 rounded-md"
             alt="usericon"
           />
