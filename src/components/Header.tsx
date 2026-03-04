@@ -1,13 +1,17 @@
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
+import { useSelector } from "react-redux";
+import type { RootState } from "../utils/appStore";
 
 interface HeaderProps {
   showUser?: boolean;
 }
 
 const Header = ({ showUser = false }: HeaderProps) => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const user = useSelector((store: RootState) => store.user);
+
     const handleSignOut = () => {
         signOut(auth).then(() => {
            navigate("/");
@@ -15,8 +19,8 @@ const Header = ({ showUser = false }: HeaderProps) => {
         .catch((error) => {
             navigate("/error");
         });
-
     }
+
   return (
     <div className="absolute top-0 left-0 w-full px-8 py-4 flex justify-between items-center bg-gradient-to-b from-black z-20">
 
@@ -29,7 +33,7 @@ const Header = ({ showUser = false }: HeaderProps) => {
       {showUser && (
         <div className="flex items-center gap-4">
           <img
-            src="/user-icon.png"
+            src={user.photoURL}
             className="w-10 h-10 rounded-md"
             alt="usericon"
           />
