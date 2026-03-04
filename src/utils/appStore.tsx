@@ -8,5 +8,5 @@ import userReducer from "./userSlice";
      }
     }
 )
-
+export type RootState = ReturnType<typeof appStore.getState>;
 export default appStore;
