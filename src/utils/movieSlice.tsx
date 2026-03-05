@@ -5,7 +5,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 const movieSlice = createSlice({
     name:"movies",
     initialState: {
-        nowPlayingMovies: null as string | null,
+        nowPlayingMovies: null as string | null
     },
     reducers: {
         addNowPlayingMovies: (state, action:PayloadAction<string | null>) => {
