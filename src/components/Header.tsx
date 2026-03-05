@@ -1,8 +1,11 @@
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
-import { signOut } from "firebase/auth";
+import { signOut, onAuthStateChanged } from "firebase/auth";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import type { RootState } from "../utils/appStore";
+import { addUser, removeUser } from "../utils/userSlice";
 
 interface HeaderProps {
   showUser?: boolean;
@@ -10,16 +13,38 @@ interface HeaderProps {
 
 const Header = ({ showUser = false }: HeaderProps) => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const user = useSelector((store: RootState) => store.user);
 
     const handleSignOut = () => {
-        signOut(auth).then(() => {
-           navigate("/");
-        })
+        signOut(auth)
+        .then(() => {})
         .catch((error) => {
             navigate("/error");
         });
-    }
+    };
+
+    useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(
+          addUser({
+            uid: user.uid,
+            email: user.email,
+            displayName: user.displayName,
+            photoURL: user.photoURL
+          })
+        );
+        navigate("/browse");   
+        } 
+        else {
+        dispatch(removeUser());
+        navigate("/");  
+        }
+    });
+
+  return () => unsubscribe();
+  }, [dispatch, navigate]);
 
   return (
     <div className="absolute top-0 left-0 w-full px-8 py-4 flex justify-between items-center bg-gradient-to-b from-black z-20">
