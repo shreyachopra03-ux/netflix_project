@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import type { RootState } from "../utils/appStore";
 import { addUser, removeUser } from "../utils/userSlice";
+import { LOGO } from "../utils/constants";
+import { USER_AVATAR } from "../utils/constants";
 
 interface HeaderProps {
   showUser?: boolean;
@@ -43,14 +45,15 @@ const Header = ({ showUser = false }: HeaderProps) => {
         }
     });
 
-  return () => unsubscribe();
-  }, [dispatch, navigate]);
+    // Unsubscribe when the component unmounts => it's like a cleanup fn
+    return () => unsubscribe();
+    }, [dispatch, navigate]);
 
-  return (
+    return (
     <div className="absolute top-0 left-0 w-full px-8 py-4 flex justify-between items-center bg-gradient-to-b from-black z-20">
 
       <img
-        src="/netflix-logo.png"
+        src={LOGO}
         alt="logo"
         className="w-40"
       />
@@ -58,7 +61,7 @@ const Header = ({ showUser = false }: HeaderProps) => {
       {showUser && (
         <div className="flex items-center gap-4">
           <img
-            src={user?.photoURL || "/user-icon.png"}
+            src={user?.photoURL || USER_AVATAR}
             className="w-10 h-10 rounded-md"
             alt="usericon"
           />
