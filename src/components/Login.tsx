@@ -2,24 +2,22 @@ import Header from "./Header";
 import { useState, useRef } from "react";
 import { checkValidData } from "../utils/validate";
 import { auth } from "../utils/firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth"
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
   
   const name = useRef<HTMLInputElement>(null);
   const email = useRef<HTMLInputElement>(null);
   const password = useRef<HTMLInputElement>(null);
 
   const handleButtonClick = () => {
-    const message = checkValidData(
-      email.current?.value || "",
-      password.current?.value || ""
-    );
+    const message = checkValidData(email.current?.value || "", password.current?.value || "");
 
     setErrorMessage(message);
 
@@ -39,7 +37,15 @@ const Login = () => {
             photoURL: "https://avatars.githubusercontent.com/u/201982287?v=4"
             })
             .then(() => {
-             navigate("/browse")
+                const { uid, email, displayName, photoURL } = auth.currentUser!;
+                dispatch(
+                    addUser({
+                        uid,
+                        email,
+                        displayName,
+                        photoURL
+                        })
+                    );
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -57,7 +63,6 @@ const Login = () => {
         email.current?.value || "",
         password.current?.value || ""
         )
-        .then(() => navigate("/browse"))
         .catch((error) => {
           setErrorMessage(error.code + "," + error.message);
         });
