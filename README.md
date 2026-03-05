@@ -38,3 +38,12 @@
       - Search Bar
       - Movie Suggestions               
 
+...
+# UI of Browse Page 
+- MainContainer
+      - VideoBackground
+      - VideoTitle
+
+- SecondaryContainer
+      - movieLists * n
+           - movieCards * n
