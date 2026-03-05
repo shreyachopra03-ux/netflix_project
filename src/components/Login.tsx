@@ -5,6 +5,8 @@ import { auth } from "../utils/firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth"
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { USER_AVATAR } from "../utils/constants";
+import { BACKGROUND_IMG } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -34,7 +36,7 @@ const Login = () => {
             const user = userCredential.user;
             updateProfile(user, {
             displayName: name.current?.value || "",
-            photoURL: "https://avatars.githubusercontent.com/u/201982287?v=4"
+            photoURL: USER_AVATAR
             })
             .then(() => {
                 const { uid, email, displayName, photoURL } = auth.currentUser!;
@@ -79,7 +81,7 @@ const Login = () => {
 
       <img
         className="absolute top-0 left-0 w-full h-full object-cover -z-10 pointer-events-none"
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/e49aba81-ee7c-4f19-baef-7c54bbab003e/web/IN-en-20260202-TRIFECTA-perspective_04f5de39-b518-493c-9a8d-6aef11af0457_large.jpg"
+        src={BACKGROUND_IMG}
         alt="background"
       />
 
