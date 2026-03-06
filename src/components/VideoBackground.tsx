@@ -1,4 +1,4 @@
-// import type { RootState } from "../utils/appStore";
+import type { RootState } from "../utils/appStore";
 import { useSelector } from "react-redux";
 import  useMovieTrailer from "../hooks/useMovieTrailer"
 
@@ -7,7 +7,7 @@ type Props = {
 }
 
 const VideoBackground = ({ movieId }:Props ) => {
-    const trailerVideo = useSelector((store) => store.movies?.trailerVideo)
+    const trailerVideo = useSelector((store: RootState) => store.movies?.trailerVideo)
     // console.log(trailerVideo);
 
     useMovieTrailer(movieId); 
