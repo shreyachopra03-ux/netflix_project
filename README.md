@@ -29,6 +29,7 @@
 - Embedded the youtube video and made it autoplay and mute
 - Tailwind classes to make the main container look awesome
 - Build Secondary Container
+- GPT Search Feature
 
 ...
 # Features
