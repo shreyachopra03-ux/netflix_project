@@ -12,10 +12,10 @@ type Props = {
 
 const MovieList = ({ title, movies }:Props) => {
     return (
-        <div>
-            <div>
-                <h1>{title}</h1>
-                <div>
+        <div className="">
+             <h1>{title}</h1>
+            <div className="flex overflow-x-scroll">
+                <div className="flex">
                     {movies.map(movie=> <MovieCard key={movie.id} posterPath={movie?.poster_path}/>)}
                 </div>
             </div>
