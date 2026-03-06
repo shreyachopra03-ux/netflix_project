@@ -1,3 +1,4 @@
+
 # NETFLIX GPT PROJECT
 - Used Vite Bundler
 - Configured TailwindCSS
@@ -19,6 +20,15 @@
 - Add hardcoded values to the constants file
 - Register TMDB API & create an app & get access tokens
 - Get data from TMDB "now playing movie lists" API
+- Custom Hook fro now playing videos
+- Create movieSlice 
+- Update store with movie data
+- Planning for Main Container and Secondary Contaainer
+- Fetch Data for Trailer Video
+- Update Store with Trailer Video Data
+- Embedded the youtube video and made it autoplay and mute
+- Tailwind classes to make the main container look awesome
+- Build Secondary Container
 
 ...
 # Features
