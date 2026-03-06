@@ -6,7 +6,7 @@ type Props = {
 const VideoTitle = ({ title, overview }:Props) => {
 
     return (
-        <div className="w-screen aspect-video bg-gradient-to-r from-black pt-[20%] px-24 absolute text-white">
+        <div className="w-screen aspect-video bg-linear-to-r from-black pt-[20%] px-24 absolute text-white">
             <h1 className="text-4xl font-bold">{title}</h1>
             <p className="py-6 text-m w-1/4">{overview}</p>
             <div className="">
