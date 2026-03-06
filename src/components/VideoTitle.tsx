@@ -1,4 +1,9 @@
-const VideoTitle = ({title, overview}) => {
+type Props = {
+    title: string;
+    overview: string
+}
+
+const VideoTitle = ({ title, overview }:Props) => {
 
     return (
         <div className="w-screen aspect-video bg-gradient-to-r from-black pt-[20%] px-24 absolute text-white">
