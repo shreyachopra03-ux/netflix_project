@@ -16,7 +16,7 @@ const MovieList = ({ title, movies }:Props) => {
             <div>
                 <h1>{title}</h1>
                 <div>
-                    <MovieCard posterPath={movies?.[0]?.poster_path}/>
+                    {movies.map(movie=> <MovieCard key={movie.id} posterPath={movie?.poster_path}/>)}
                 </div>
             </div>
         </div>
