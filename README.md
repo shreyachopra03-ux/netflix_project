@@ -1,4 +1,3 @@
-
 # NETFLIX GPT PROJECT
 - Used Vite Bundler
 - Configured TailwindCSS
@@ -58,3 +57,5 @@
 - SecondaryContainer
       - movieLists * n
            - movieCards * n
+
+
