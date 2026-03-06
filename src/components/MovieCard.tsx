@@ -7,11 +7,10 @@ type Props = {
 const MovieCard = ({ posterPath }:Props) => {
     console.log(posterPath)
     return (
-        <div className="w-36">
+        <div className="w-48">
             <img
-            className="w-full"
             alt="Movie Card"
-            src={IMG_CDN_URL  + posterPath} />
+            src={IMG_CDN_URL + posterPath} />
         </div>
     )
 }
