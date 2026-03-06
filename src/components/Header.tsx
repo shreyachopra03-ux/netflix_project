@@ -21,7 +21,7 @@ const Header = ({ showUser = false }: HeaderProps) => {
     const handleSignOut = () => {
         signOut(auth)
         .then(() => {})
-        .catch((error) => {
+        .catch(() => {
             navigate("/error");
         });
     };
@@ -50,7 +50,7 @@ const Header = ({ showUser = false }: HeaderProps) => {
     }, [dispatch, navigate]);
 
     return (
-    <div className="absolute top-0 left-0 w-full px-8 py-4 flex justify-between items-center bg-gradient-to-b from-black z-20">
+    <div className="absolute top-0 left-0 w-full px-8 py-4 flex justify-between items-center bg-linear-to-b from-black z-20">
 
       <img
         src={LOGO}
