@@ -3,7 +3,11 @@ import { API_OPTIONS } from "../utils/constants";
 import { addTrailerVideo } from "../utils/movieSlice";
 import { useDispatch } from "react-redux";
 
-const useMovieTrailer = (movieId) => {
+type Video = {
+    type: string
+}
+
+const useMovieTrailer = (movieId: number) => {
 const dispatch = useDispatch();
 
     // fetch trailer video & updating the store with trailer video data
@@ -14,7 +18,7 @@ const dispatch = useDispatch();
         const json = await data.json();
         // console.log(json);
 
-        const filterData = json.results.filter((video) => video.type == "Trailer");
+        const filterData = json.results.filter((video: Video) => video.type == "Trailer");
 
         // If there's a trailer video then take that, otherwise return the 1st video out of all the resulting videos
         const trailer = filterData.length ? filterData[0] : json.results[0]
