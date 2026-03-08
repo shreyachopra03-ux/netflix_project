@@ -60,15 +60,14 @@ const Header = ({ showUser = false }: HeaderProps) => {
 
       {showUser && (
         <div className="flex items-center gap-4">
+          <div className="py-2 px-4 m-2 bg-blue-500 text-white broder rounded-lg border-2">GPT Search</div>
           <img
             src={user?.photoURL || USER_AVATAR}
-            className="w-10 h-10 rounded-md"
-            alt="usericon"
-          />
-
+            className="w-10 h-10 border-2 border-white rounded-lg"
+            alt="usericon"/>
           <button 
           onClick={handleSignOut}
-          className="bg-red-600 px-4 py-1 rounded text-white hover:bg-red-700">
+          className="bg-red-600 px-4 m-2 py-2 rounded-lg text-white hover:bg-red-700 border-2">
             Sign Out
           </button>
         </div>
