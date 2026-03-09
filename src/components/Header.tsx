@@ -49,6 +49,12 @@ const Header = ({ showUser = false }: HeaderProps) => {
     return () => unsubscribe();
     }, [dispatch, navigate]);
 
+    const handleGptSearchClick = () => {
+      // Toggle Gpt Search
+
+    };
+
+
     return (
     <div className="absolute top-0 left-0 w-full px-8 py-4 flex justify-between items-center bg-linear-to-b from-black z-20">
 
@@ -60,19 +66,22 @@ const Header = ({ showUser = false }: HeaderProps) => {
 
       {showUser && (
         <div className="flex items-center gap-4">
-          <div className="py-2 px-4 m-2 bg-blue-500 text-white broder rounded-lg border-2">GPT Search</div>
-          <img
+        <button 
+          onClick={handleGptSearchClick}
+          className="py-2 px-4 m-2 my-2 bg-blue-500 text-white broder rounded-lg border-2">
+          GPT Search
+        </button>
+        <img
             src={user?.photoURL || USER_AVATAR}
-            className="w-10 h-10 border-2 border-white rounded-lg"
+            className="w-10 h-10 border-2 border-white rounded-lg my-2"
             alt="usericon"/>
-          <button 
+        <button 
           onClick={handleSignOut}
-          className="bg-red-600 px-4 m-2 py-2 rounded-lg text-white hover:bg-red-700 border-2">
+          className="bg-red-600 px-4 m-2 py-2 rounded-lg text-white hover:bg-red-700 border-2 my-2">
             Sign Out
-          </button>
+        </button>
         </div>
       )}
-
     </div>
   );
 };
