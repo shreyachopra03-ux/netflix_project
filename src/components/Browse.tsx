@@ -2,6 +2,7 @@ import Header from "./Header";
 import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
+import GptSearch from "./GptSearch";
 
 const Browse = () => {
     useNowPlayingMovies();
@@ -11,6 +12,7 @@ const Browse = () => {
       <Header showUser={true} />
       <MainContainer />
       <SecondaryContainer/>
+      <GptSearch /> 
     </div>
   );
 };
