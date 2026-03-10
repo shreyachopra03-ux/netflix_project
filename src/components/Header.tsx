@@ -9,7 +9,7 @@ import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO } from "../utils/constants";
 import { USER_AVATAR } from "../utils/constants";
 import { toggleGptSearchView } from "../utils/gptSlice";
-// import lang  from "../utils/languageConstants";
+import { changeLanguage } from "../utils/configSlice";
 import { SUPPORTED_LANGUAGES } from "../utils/constants";
 
 interface HeaderProps {
@@ -58,6 +58,10 @@ const Header = ({ showUser = false }: HeaderProps) => {
 
     };
 
+    const handleLanguageChange = (e) => {
+      dispatch(changeLanguage(e.target.value))
+    }
+
     return (
     <div className="absolute top-0 left-0 w-full px-8 py-4 flex justify-between items-center bg-linear-to-b from-black z-20">
 
@@ -69,7 +73,9 @@ const Header = ({ showUser = false }: HeaderProps) => {
 
       {showUser && (
         <div className="flex items-center gap-4">
-          <select className="p-2 bg-gray-900 text-white m-2">
+          <select 
+          className="p-2 bg-gray-900 text-white m-2"
+          onChange={handleLanguageChange}>
             {SUPPORTED_LANGUAGES.map((lang) => (
               <option key={lang.identifier} value= {lang.identifier}>
                 {lang.name}

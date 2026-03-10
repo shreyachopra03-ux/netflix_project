@@ -28,7 +28,16 @@
 - Embedded the youtube video and made it autoplay and mute
 - Tailwind classes to make the main container look awesome
 - Build Secondary Container
+- Build Movie List
+- Build Movie Card
+- TMDB Timage CDN URL
+- Made the Browse page amazing with Tailwind CSS
+- usePopularMovies custom hook
+- GPT Search Page
+- Gpt Search Bar
+- (BONUS) Multi-language Feture in our App
 - GPT Search Feature
+
 
 ...
 # Features
