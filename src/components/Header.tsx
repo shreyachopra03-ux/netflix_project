@@ -8,6 +8,7 @@ import type { RootState } from "../utils/appStore";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO } from "../utils/constants";
 import { USER_AVATAR } from "../utils/constants";
+import { toggleGptSearchView } from "../utils/gptSlice";
 
 interface HeaderProps {
   showUser?: boolean;
@@ -51,9 +52,9 @@ const Header = ({ showUser = false }: HeaderProps) => {
 
     const handleGptSearchClick = () => {
       // Toggle Gpt Search
+      dispatch(toggleGptSearchView());
 
     };
-
 
     return (
     <div className="absolute top-0 left-0 w-full px-8 py-4 flex justify-between items-center bg-linear-to-b from-black z-20">
