@@ -69,7 +69,7 @@ const Header = ({ showUser = false }: HeaderProps) => {
 
       {showUser && (
         <div className="flex items-center gap-4">
-          <select>
+          <select className="p-2 bg-gray-900 text-white m-2">
             {SUPPORTED_LANGUAGES.map((lang) => (
               <option key={lang.identifier} value= {lang.identifier}>
                 {lang.name}
