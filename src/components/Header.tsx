@@ -9,6 +9,8 @@ import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO } from "../utils/constants";
 import { USER_AVATAR } from "../utils/constants";
 import { toggleGptSearchView } from "../utils/gptSlice";
+// import lang  from "../utils/languageConstants";
+import { SUPPORTED_LANGUAGES } from "../utils/constants";
 
 interface HeaderProps {
   showUser?: boolean;
@@ -67,6 +69,13 @@ const Header = ({ showUser = false }: HeaderProps) => {
 
       {showUser && (
         <div className="flex items-center gap-4">
+          <select>
+            {SUPPORTED_LANGUAGES.map((lang) => (
+              <option key={lang.identifier} value= {lang.identifier}>
+                {lang.name}
+              </option>
+            ))}
+          </select>
         <button 
           onClick={handleGptSearchClick}
           className="py-2 px-4 m-2 my-2 bg-blue-500 text-white broder rounded-lg border-2">
