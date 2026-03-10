@@ -42,11 +42,11 @@ const Login = () => {
                 const { uid, email, displayName, photoURL } = auth.currentUser!;
                 dispatch(
                     addUser({
-                        uid,
-                        email,
-                        displayName,
-                        photoURL
-                        })
+                      uid,
+                      email,
+                      displayName,
+                      photoURL
+                      })
                     );
             })
             .catch((error) => {
@@ -87,8 +87,7 @@ const Login = () => {
 
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="w-3/12 min-w-[320px] p-10 bg-black/80 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white rounded-lg z-10"
-      >
+        className="w-3/12 min-w-[320px] p-10 bg-black/80 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white rounded-lg z-10">
         <h1 className="text-3xl font-bold mb-6">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
