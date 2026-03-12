@@ -1,7 +1,7 @@
 import GptSearchBar  from "../components/GptSearchBar.tsx";
 import GptMovieSuggestion  from "../components/GptMovieSuggestion.tsx";
-import { BACKGROUND_IMG } from "../utils/constants.tsx";
-  
+import { BACKGROUND_IMG } from "../utils/constants";
+
 const GptSearchPage = () => {
     return (
         <div>
