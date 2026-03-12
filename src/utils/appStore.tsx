@@ -9,7 +9,7 @@ import configReducer from "./configSlice"
         user: userReducer,
         movies: moviesReducer,
         gpt: gptReducer,
-        config: configReducer
+        config: configReducer,       
      }}
 )
 
