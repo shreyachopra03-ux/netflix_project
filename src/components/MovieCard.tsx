@@ -5,7 +5,9 @@ type Props = {
 }
 
 const MovieCard = ({ posterPath }: Props) => {
+    if (!posterPath) return null;
     // console.log(posterPath)
+    
     return (
         <div className="w-48 md:w-48 flex-none">
             <img
