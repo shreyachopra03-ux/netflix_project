@@ -59,7 +59,7 @@ const Header = ({ showUser = false }: HeaderProps) => {
 
     };
 
-    const handleLanguageChange = (e) => {
+    const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
       dispatch(changeLanguage(e.target.value))
     }
 
@@ -88,7 +88,7 @@ const Header = ({ showUser = false }: HeaderProps) => {
         <button 
           onClick={handleGptSearchClick}
           className="py-2 px-4 m-2 my-2 bg-blue-500 text-white broder rounded-lg border-2">
-            {showGptSearch ? "Homepage" : "GPT Search"};
+            {showGptSearch ? "Homepage" : "GPT Search"}
         </button>
         <img
             src={user?.photoURL || USER_AVATAR}
