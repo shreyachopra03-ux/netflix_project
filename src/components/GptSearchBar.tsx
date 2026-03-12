@@ -49,7 +49,7 @@ const GptSearchBar = () => {
         console.log(gptResults.choices?.[0]?.message?.content);
 
         // Baazigar, Andhadhun, Satya, Company, Johnny Gaddaar
-        const gptMovies = gptResults.choices?.[0]?.message?.content?.split(",");
+        const gptMovies = gptResults.choices?.[0]?.message?.content?.split(",") ?? [];
        
         // ['Baazigar', 'Andhadhun', 'Satya', 'Company', 'Johnny Gaddaar']
 
@@ -60,8 +60,8 @@ const GptSearchBar = () => {
         const tmdbResults = await Promise.all(promiseArray);
         console.log(tmdbResults);
 
-        dispatch(addGptMovieResult(tmdbResults));
-
+        dispatch(addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults }));
+        
         }
 
     return (
