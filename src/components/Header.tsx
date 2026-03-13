@@ -64,19 +64,19 @@ const Header = ({ showUser = false }: HeaderProps) => {
     }
 
     return (
-    <div className="absolute top-0 left-0 w-full px-8 py-4 flex justify-between items-center bg-linear-to-b from-black z-20">
+    <div className="absolute top-0 left-0 w-full px-8 py-4 flex items-center bg-linear-to-b from-black z-20 flex-col md:flex-row justify-between">
 
       <img
         src={LOGO}
         alt="logo"
-        className="w-40"
+        className="w-40 mx-auto md:mx-0"
       />
 
       {showUser && (
         <div className="flex items-center gap-4">
           {showGptSearch && (
           <select 
-          className="p-2 bg-gray-900 text-white m-2"
+          className="p-2 bg-gray-900 text-white m-2 -mr-4"
           onChange={handleLanguageChange}>
             {SUPPORTED_LANGUAGES.map((lang) => (
               <option key={lang.identifier} value= {lang.identifier}>
@@ -87,7 +87,7 @@ const Header = ({ showUser = false }: HeaderProps) => {
           )}
         <button 
           onClick={handleGptSearchClick}
-          className="py-2 px-4 m-2 my-2 bg-blue-500 text-white broder rounded-lg border-2">
+          className="py-2 px-4 m-2 my-2 bg-purple-700 text-white broder rounded-lg border-2">
             {showGptSearch ? "Homepage" : "GPT Search"}
         </button>
         <img
@@ -96,7 +96,9 @@ const Header = ({ showUser = false }: HeaderProps) => {
             alt="usericon"/>
         <button 
           onClick={handleSignOut}
-          className="bg-red-600 px-4 m-2 py-2 rounded-lg text-white hover:bg-red-700 border-2 my-2">
+          // className="bg-red-600 px-4 m-2 rounded-lg text-white hover:bg-red-700 border-2 -my-2 -py-3 md:">
+           className="bg-red-600 py-2 px-4 m-2 -my-2 rounded-lg text-white hover:bg-red-700 border-2">
+
             Sign Out
         </button>
         </div>
@@ -106,3 +108,5 @@ const Header = ({ showUser = false }: HeaderProps) => {
 };
 
 export default Header;
+
+
