@@ -64,7 +64,7 @@ const Header = ({ showUser = false }: HeaderProps) => {
     }
 
     return (
-    <div className="absolute top-0 left-0 w-full px-8 py-4 flex items-center bg-linear-to-b from-black z-20 flex-col md:flex-row justify-between">
+    <div className="-mt-6 absolute top-0 left-0 w-full px-8 py-4 flex items-center bg-linear-to-b from-black z-20 flex-col md:flex-row justify-between">
 
       <img
         src={LOGO}
@@ -87,7 +87,7 @@ const Header = ({ showUser = false }: HeaderProps) => {
           )}
         <button 
           onClick={handleGptSearchClick}
-          className="w-16 h-8 py-2 px-4 m-2 my-2 bg-white text-black font-medium flex justify-center items-center -mr-1 rounded-sm">
+          className="w-16 h-8 py-2 px-4 m-2 my-2 bg-white text-black font-medium flex justify-center items-center -mr-1 rounded-sm text-xs">
             {showGptSearch ? "Home" : "GPT Search"}
         </button>
         <img
