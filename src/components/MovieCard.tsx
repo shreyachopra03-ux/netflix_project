@@ -9,7 +9,7 @@ const MovieCard = ({ posterPath }: Props) => {
     // console.log(posterPath)
     
     return (
-        <div className="w-48 md:w-48 flex-none">
+        <div className="shrink-0 w-36 md:w-48 pr-4">
             <img
             alt="Movie Card"
             src={IMG_CDN_URL + posterPath}
@@ -19,3 +19,4 @@ const MovieCard = ({ posterPath }: Props) => {
 }
 
 export default MovieCard;
+
