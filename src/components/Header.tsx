@@ -64,7 +64,7 @@ const Header = ({ showUser = false }: HeaderProps) => {
     }
 
     return (
-    <div className="-mt-6 absolute top-0 left-0 w-full px-8 py-4 flex items-center bg-linear-to-b from-black z-20 flex-col md:flex-row justify-between">
+    <div className="absolute top-0 left-0 w-full px-8 py-4 flex items-center bg-linear-to-b from-black z-20 flex-col md:flex-row justify-between">
 
       <img
         src={LOGO}
